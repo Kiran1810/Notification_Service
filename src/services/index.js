@@ -1,3 +1,3 @@
 module.exports = {
-    UserService: require('./user-service')
+    EmailService: require('./email-service')
 }
