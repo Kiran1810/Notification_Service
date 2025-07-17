@@ -7,9 +7,9 @@ const { response } = require('express');
 
 const ticketRepo= new TicketRepository
 
-async function SendMail(mailFrom,mailTo,content,text){
+async function SendEmail(mailFrom,mailTo,content,text){
     try{
-     const response =await MAILER.sendEmail({
+     const response =await MAILER.sendMail({
         from:mailFrom,
         to:mailTo,
         content:content,
@@ -24,7 +24,7 @@ throw new AppError('Cannot send email',StatusCodes.INTERNAL_SERVER_ERROR)
 }
 
 
-async function create(data){
+async function createTicket(data){
     try{
  const response=await ticketRepo.create(data)
  return response;
@@ -51,4 +51,4 @@ async function getAllPendingEmails(){
 }
 
 
-module.exports= {SendMail,create,getAllPendingEmails}
+module.exports= {SendEmail,createTicket,getAllPendingEmails}
