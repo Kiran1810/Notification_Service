@@ -1,5 +1,5 @@
 const TicketRepository  =require('../repositories/ticket-repository')
-const {AppError}=require('../utils/errors/app-error')
+const AppError=require('../utils/errors/app-error')
 const {MAILER}=require('../config')
 const { StatusCodes } = require('http-status-codes');
 const { response } = require('express');
@@ -9,12 +9,13 @@ const ticketRepo= new TicketRepository
 
 async function SendEmail(mailFrom,mailTo,content,text){
     try{
-     const response =await MAILER.sendMail({
-        from:mailFrom,
-        to:mailTo,
-        content:content,
-        text:text
-     });
+    const response = await MAILER.sendMail({
+  from: mailFrom,
+  to: mailTo,
+  subject: "Notification from booking system",
+  text: text,
+  html: `<p>${content}</p>`
+});
      return response;
 
     }

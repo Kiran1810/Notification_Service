@@ -8,7 +8,7 @@ const mailSender = nodemailer.createTransport({
     service:'Gmail',
     auth:{
         user:Gmail_Mail,
-        password:Gmail_Pass
+        pass:Gmail_Pass
     }
 })
 

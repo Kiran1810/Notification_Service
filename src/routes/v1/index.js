@@ -4,7 +4,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /info:
+ * /v1/info:
  *   get:
  *     summary: Get information
  *     tags:
@@ -17,7 +17,7 @@ router.get('/info', InfoController.info);
 
 /**
  * @swagger
- * /ticket:
+ * /v1/ticket:
  *   post:
  *     summary: Create a ticket
  *     tags:
@@ -30,11 +30,13 @@ router.get('/info', InfoController.info);
  *           schema:
  *             type: object
  *             properties:
- *               flightId:
+ *               subject:
  *                 type: string
- *               passengerName:
+ *               content:
  *                 type: string
- *               seatNumber:
+ *               RecepientEmail:
+ *                 type: string
+ *               status:
  *                 type: string
  *             required:
  *               - flightId
